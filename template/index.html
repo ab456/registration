@@ -1,0 +1,81 @@
+<html>
+<head>
+    <link type="text/css" href="{{ url_for('static', filename='/css/mywebs.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<form method="post" action="/">
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+            <h2>Welcome</h2>
+
+        </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="/addd" role="tab"
+                       aria-controls="profile" aria-selected="false">Admin</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h2 class="register-heading">Registartion Form</h2>
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" id="name" name="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="College Name" id="cname" name="cname" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Education" id="e" name="edu" required/>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Educational year" id="me" name="yedu" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="submit" class="btnRegister" value="Register"/>
+                                <script>
+                                    $("#submit").click(function(){
+                                        var n = $("#name").val();
+                                        var o = $("#cname").val();
+                                        var p = $("#e").val();
+                                        var q = $("#me").val();
+                                        if (n == ''||o == ''||p == ''||q == ''){
+                                            alert("missing field");
+                                        }
+                                        else{
+                                            alert("Successfully Registered")
+                                            }
+                                        });
+                                </script>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+            integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+            crossorigin="anonymous"></script>
+</form>
+</body>
+</html>
