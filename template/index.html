@@ -8,7 +8,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<form method="post" action="/">
+<form method="post" action="/" enctype="multipart/form-data">
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
@@ -40,6 +40,13 @@
 
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Educational year" id="me" name="yedu" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email-id" name="mail" required/>
+                            </div>
+                            <div class="form-group">
+                                <label>Upload your document pdf here : </label>&nbsp;
+                                <input type="file" class="form-control" name="file1" required/>
                             </div>
                             <div class="form-group">
                                 <input type="submit" id="submit" class="btnRegister" value="Register"/>

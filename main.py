@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 import json
+import os
+from werkzeug.utils import secure_filename
 import math
 import random
 
@@ -10,6 +12,11 @@ app.secret_key = "akash-bayas-bais"
 
 with open("configg.json", "r") as i:
     devil = json.load(i)["devil"]
+app.config['upload'] = devil['docs_data']
+def read_file(filename):
+    with open(filename, 'rb') as f:
+        photo = f.read()
+    return photo
 
 @app.route("/", methods=['GET','POST'])
 def home():
@@ -23,8 +30,14 @@ def home():
         coll = request.form["cname"]
         edu = request.form["edu"]
         expl = request.form["yedu"]
-        sqlQuery = "INSERT INTO `student_table`(`Name`, `Collage`, `Education`, `Edu year`) VALUES (%s, %s, %s, %s)"
-        mycursor.execute(sqlQuery, (username, coll, edu, expl))
+        mail = request.form["mail"]
+        file = request.files["file1"]
+        # a = file.filename
+        # data = read_file(file)
+        file.save(os.path.join(app.config['upload'], secure_filename(file.filename)))
+        # return data
+        sqlQuery = "INSERT INTO `student_table`(`Name`, `Collage`, `Education`, `Edu year`, `mail`) VALUES (%s, %s, %s, %s, %s)"
+        mycursor.execute(sqlQuery, (username, coll, edu, expl, mail))
     conn.commit()
     mycursor.close()
     return render_template("index.html", devil=devil)
